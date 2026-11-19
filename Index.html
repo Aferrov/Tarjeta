@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día del Hombre, Wilson! 🐺💕</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka y Nunito para un estilo tierno y redondeado -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Fredoka', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        mintBg: '#e6f7d9',
+                        mintSoft: '#f2fbe9',
+                        duduBrown: '#6b4423',
+                        duduLight: '#c89d7c',
+                        bubuPink: '#ff8fab',
+                        bubuPinkDark: '#fb6f92',
+                        creamCard: '#fffdf9',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados y animaciones suaves */
+        body {
+            background: radial-gradient(circle at top, #f3fce8 0%, #e6f7d9 60%, #d8f0c5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Animación de flotación suave para la ilustración */
+        @keyframes floatCute {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-7px) rotate(1deg);
+            }
+        }
+
+        .animate-float {
+            animation: floatCute 3.5s ease-in-out infinite;
+        }
+
+        /* Animación de latido suave */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.06); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.04); }
+        }
+
+        .animate-heartbeat {
+            animation: heartbeat 2.4s infinite ease-in-out;
+        }
+
+        /* Destellos brillantes */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(15deg); }
+        }
+
+        .sparkle {
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        /* Transición de entrada de la tarjeta principal */
+        @keyframes cardReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.85) translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .card-reveal {
+            animation: cardReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Partículas flotantes (lluvia de amor / confeti) */
+        .floating-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 50;
+            will-change: transform, opacity;
+        }
+
+        /* Sombra estilo sticker tierno */
+        .cute-shadow {
+            box-shadow: 0 14px 35px -8px rgba(107, 68, 35, 0.16), 0 4px 12px -2px rgba(107, 68, 35, 0.08);
+        }
+
+        .btn-bounce:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="font-body text-duduBrown flex items-center justify-center p-4 sm:p-6 relative">
+
+    <!-- Fondo decorativo con elementos sutiles flotando -->
+    <div id="ambient-bg" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+    <!-- Contenedor Principal -->
+    <main class="w-full max-w-md mx-auto relative z-10">
+
+        <!-- PANTALLA 1: PORTADA / SOBRE INTERACTIVO -->
+        <section id="cover-screen" class="bg-creamCard border-4 border-white rounded-[2.2rem] p-7 sm:p-9 text-center cute-shadow transition-all duration-500">
+            <!-- Sello superior -->
+            <div class="inline-flex items-center gap-2 bg-mintBg text-duduBrown font-display font-semibold text-xs sm:text-sm px-4 py-1.5 rounded-full mb-5 border border-duduLight/30">
+                <span>💌</span>
+                <span>Tienes una sorpresa especial</span>
+                <span>✨</span>
+            </div>
+
+            <!-- Ilustración SVG de Sobre con orejitas de osito -->
+            <div class="relative w-36 h-32 mx-auto my-4 animate-float cursor-pointer" onclick="openCard()">
+                <!-- Orejitas -->
+                <div class="w-9 h-9 bg-duduBrown rounded-full absolute -top-2 left-4 border-4 border-duduLight"></div>
+                <div class="w-9 h-9 bg-duduBrown rounded-full absolute -top-2 right-4 border-4 border-duduLight"></div>
+                <!-- Cuerpo del sobre -->
+                <div class="w-full h-full bg-[#f8ebd9] border-4 border-duduBrown rounded-3xl relative overflow-hidden flex items-center justify-center shadow-md">
+                    <!-- Solapa del sobre -->
+                    <div class="absolute top-0 left-0 right-0 h-16 bg-[#edd5b8] border-b-4 border-duduBrown rounded-b-[2rem]"></div>
+                    <!-- Sello de corazón central -->
+                    <div class="relative z-10 w-12 h-12 bg-bubuPink rounded-full border-4 border-white flex items-center justify-center text-white text-xl shadow-sm animate-heartbeat mt-3">
+                        ❤️
+                    </div>
+                </div>
+            </div>
+
+            <!-- Título de la portada -->
+            <h1 class="font-display text-3xl sm:text-4xl font-bold text-duduBrown mt-5 mb-2 tracking-tight">
+                Para mi lobito 🐺💙
+            </h1>
+            <p class="text-duduBrown/80 text-sm sm:text-base font-medium mb-7 px-2">
+                Un detallito hecho con mucho amor para celebrar tu día...
+            </p>
+
+            <!-- Botón para abrir -->
+            <button onclick="openCard()" class="btn-bounce w-full bg-gradient-to-r from-bubuPink to-bubuPinkDark hover:brightness-105 text-white font-display font-semibold text-lg sm:text-xl py-4 px-6 rounded-2xl shadow-lg shadow-bubuPink/40 transition-all flex items-center justify-center gap-2.5 cursor-pointer">
+                <span>Abrir mi tarjeta</span>
+                <span class="text-xl">✨</span>
+            </button>
+        </section>
+
+        <!-- PANTALLA 2: TARJETA PRINCIPAL DE DUDU Y BUBU (Oculta inicialmente) -->
+        <section id="main-card" class="hidden bg-creamCard border-4 border-white rounded-[2.2rem] p-6 sm:p-8 text-center cute-shadow relative overflow-hidden">
+            
+            <!-- Decoración superior de banderines/corazones -->
+            <div class="flex justify-center items-center gap-2 mb-3">
+                <span class="text-bubuPink text-lg sparkle">✦</span>
+                <span class="bg-mintBg text-duduBrown font-display font-semibold text-xs uppercase tracking-wider px-3.5 py-1 rounded-full border border-duduBrown/15">
+                    19 de Noviembre • Día del Hombre
+                </span>
+                <span class="text-bubuPink text-lg sparkle" style="animation-delay: 0.7s;">✦</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="font-display text-2xl sm:text-3xl font-bold text-duduBrown leading-tight mb-4">
+                ¡Feliz Día del Hombre, amor! 💪💕
+            </h1>
+
+            <!-- Marco tierno con la imagen de Dudu musculoso y Bubu -->
+            <div class="relative max-w-[260px] sm:max-w-[280px] mx-auto my-4">
+                <!-- Destellos alrededor de la imagen -->
+                <span class="absolute -top-3 -left-3 text-2xl sparkle z-20">✨</span>
+                <span class="absolute -bottom-2 -right-3 text-2xl sparkle z-20" style="animation-delay: 0.5s;">💖</span>
+                <span class="absolute top-1/2 -left-4 text-lg sparkle z-20" style="animation-delay: 1s;">⭐</span>
+
+                <div class="bg-mintBg p-2.5 rounded-[2rem] border-4 border-duduBrown/20 shadow-inner animate-float">
+                    <div class="rounded-[1.5rem] overflow-hidden bg-[#e6f7d9] relative">
+                        <img 
+                            src="Osito.jpg" 
+                            alt="Dudu fuerte y Bubu admirándolo" 
+                            class="w-full h-auto object-cover block mx-auto"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x400/e6f7d9/6b4423?text=Dudu+y+Bubu+%F0%9F%92%AA%F0%9F%90%BB';"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caja de Dedicatoria Personalizada -->
+            <div class="bg-mintSoft border-2 border-dashed border-duduBrown/25 rounded-2xl p-5 my-5 relative">
+                <p class="font-body text-duduBrown text-base sm:text-lg font-bold leading-relaxed">
+                    "Para mi lobito, el amor de mi vida, mi apoyo, mi hombre <span class="text-bubuPinkDark font-display text-xl underline decoration-wavy decoration-bubuPink/60">Wilson</span>"
+                </p>
+            </div>
+
+            <!-- Firma de la Princesa -->
+            <div class="mb-6">
+                <p class="font-display text-lg sm:text-xl font-semibold text-bubuPinkDark flex items-center justify-center gap-1.5">
+                    <span>Atte: de tu princesa</span>
+                    <span class="inline-block animate-bounce">👑</span>
+                    <span>💕</span>
+                </p>
+            </div>
+
+            <!-- Botón Interactivo: Lluvia de amor y abrazos -->
+            <div class="space-y-3">
+                <button onclick="triggerLoveRain()" class="btn-bounce w-full bg-gradient-to-r from-duduBrown to-[#85562e] hover:brightness-110 text-white font-display font-semibold text-base sm:text-lg py-3.5 px-5 rounded-2xl shadow-md shadow-duduBrown/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Enviar un abrazo / Lluvia de amor</span>
+                    <span class="text-xl">💕</span>
+                </button>
+
+                <!-- Contador sutil de abrazos enviados -->
+                <p id="hug-counter" class="text-xs font-bold text-duduBrown/60 h-4 transition-opacity duration-300 opacity-0">
+                    ¡Abrazos enviados a Wilson: <span id="hug-count">0</span> 🐻🤗!
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        let hugCount = 0;
+
+        /**
+         * Genera partículas flotantes de fondo muy suaves al cargar
+         */
+        function initAmbientBackground() {
+            const bg = document.getElementById('ambient-bg');
+            const icons = ['🤍', '✨', '🌿', '💕'];
+            for (let i = 0; i < 12; i++) {
+                const el = document.createElement('div');
+                el.textContent = icons[i % icons.length];
+                el.className = 'absolute opacity-30 text-lg sm:text-xl';
+                el.style.left = Math.random() * 95 + '%';
+                el.style.top = Math.random() * 95 + '%';
+                el.style.animation = `floatCute ${3 + Math.random() * 3}s ease-in-out infinite`;
+                el.style.animationDelay = `${Math.random() * 2}s`;
+                bg.appendChild(el);
+            }
+        }
+
+        /**
+         * Abre la tarjeta principal con animación y explosión de corazones
+         */
+        function openCard() {
+            const cover = document.getElementById('cover-screen');
+            const mainCard = document.getElementById('main-card');
+
+            cover.style.opacity = '0';
+            cover.style.transform = 'scale(0.9) translateY(-20px)';
+
+            setTimeout(() => {
+                cover.classList.add('hidden');
+                mainCard.classList.remove('hidden');
+                mainCard.classList.add('card-reveal');
+                
+                // Lanza una lluvia inicial de celebración
+                spawnParticles(32);
+            }, 320);
+        }
+
+        /**
+         * Activa la lluvia de amor al presionar el botón interactivo
+         */
+        function triggerLoveRain() {
+            hugCount++;
+            const counterText = document.getElementById('hug-counter');
+            const countSpan = document.getElementById('hug-count');
+            
+            countSpan.textContent = hugCount;
+            counterText.classList.remove('opacity-0');
+            counterText.classList.add('opacity-100');
+
+            spawnParticles(28);
+        }
+
+        /**
+         * Crea emojis animados que caen o flotan por toda la pantalla
+         */
+        function spawnParticles(amount) {
+            const emojis = ['❤️', '💕', '🐻', '🐼', '🐺', '✨', '👑', '💪', '💖'];
+            
+            for (let i = 0; i < amount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-particle';
+                particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                // Tamaño aleatorio
+                const size = 18 + Math.random() * 18;
+                particle.style.fontSize = `${size}px`;
+                
+                // Posición inicial horizontal aleatoria
+                const startX = Math.random() * window.innerWidth;
+                const startY = -30 - Math.random() * 60;
+                particle.style.left = `${startX}px`;
+                particle.style.top = `${startY}px`;
+                
+                document.body.appendChild(particle);
+
+                // Movimiento de caída con balanceo
+                const driftX = (Math.random() - 0.5) * 160;
+                const endY = window.innerHeight + 60;
+                const rotation = (Math.random() - 0.5) * 360;
+                const duration = 2200 + Math.random() * 1800;
+
+                const animation = particle.animate([
+                    { transform: `translate(0px, 0px) rotate(0deg) scale(0.7)`, opacity: 0 },
+                    { transform: `translate(${driftX * 0.3}px, ${endY * 0.25}px) rotate(${rotation * 0.3}deg) scale(1.1)`, opacity: 1, offset: 0.2 },
+                    { transform: `translate(${driftX}px, ${endY}px) rotate(${rotation}deg) scale(0.9)`, opacity: 0 }
+                ], {
+                    duration: duration,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    delay: Math.random() * 400
+                });
+
+                animation.onfinish = () => particle.remove();
+            }
+        }
+
+        window.onload = function() {
+            initAmbientBackground();
+        };
+    </script>
+</body>
+</html>
